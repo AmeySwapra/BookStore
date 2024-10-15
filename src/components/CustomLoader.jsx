@@ -7,6 +7,7 @@ const CustomLoader = () => {
             <div />
             <div />
             <div />
+            <div/>
         </div>
     );
 };
