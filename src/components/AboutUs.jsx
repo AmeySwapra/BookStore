@@ -9,17 +9,20 @@ import {
 } from "@chakra-ui/react";
 import about1 from "../assets/about-1.png";
 import about2 from "../assets/about-2.png";
+
 const AboutUs = () => {
   const { colorMode } = useColorMode();
 
   return (
-    <Box padding={8}>
+    <Box padding={{ base: 4, md: 8 }} maxW="1200px" mx="auto">
+      
       <Flex
         direction={{ base: "column", md: "row" }}
         align="center"
-        marginBottom={16}
+        marginBottom={12}
+        wrap="wrap"
       >
-        <Box flex="1" marginRight={{ base: 0, md: 4 }}>
+        <Box flex="1" marginRight={{ base: 0, md: 6 }} marginBottom={{ base: 4, md: 0 }}>
           <Image
             src={about1}
             alt="About Us Image 1"
@@ -29,14 +32,14 @@ const AboutUs = () => {
             objectFit="cover"
           />
         </Box>
-        <Box flex="1">
+        <Box flex="1" textAlign={{ base: "center", md: "left" }}>
           <Heading size="lg" marginBottom={4}>
             About Our Bookstore
           </Heading>
           <Text
             color={colorMode === "light" ? "gray.800" : "white"}
-            fontSize="lg"
-            lineHeight="1.6"
+            fontSize={{ base: "md", md: "lg" }}
+            lineHeight="1.8"
           >
             At our Bookstore, we believe in the power of stories to transform
             lives and ignite imaginations. Our collection spans genres and ages,
@@ -49,8 +52,13 @@ const AboutUs = () => {
         </Box>
       </Flex>
 
-      <Flex direction={{ base: "column", md: "row-reverse" }} align="center">
-        <Box flex="1" marginLeft={{ base: 0, md: 4 }}>
+   
+      <Flex
+        direction={{ base: "column", md: "row-reverse" }}
+        align="center"
+        wrap="wrap"
+      >
+        <Box flex="1" marginLeft={{ base: 0, md: 6 }} marginBottom={{ base: 4, md: 0 }}>
           <Image
             src={about2}
             alt="About Us Image 2"
@@ -60,14 +68,14 @@ const AboutUs = () => {
             objectFit="cover"
           />
         </Box>
-        <Box flex="1">
+        <Box flex="1" textAlign={{ base: "center", md: "left" }}>
           <Heading size="lg" marginBottom={4}>
             Our Mission
           </Heading>
           <Text
             color={colorMode === "light" ? "gray.800" : "white"}
-            fontSize="lg"
-            lineHeight="1.6"
+            fontSize={{ base: "md", md: "lg" }}
+            lineHeight="1.8"
           >
             Our mission is to promote literacy and foster a love for reading in
             our community. We are dedicated to providing a diverse range of
