@@ -13,6 +13,7 @@ import {
   Input,
   InputRightElement,
   IconButton,
+  useToast,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons"; 
 import { useBooks } from "../context_api/BookContext"; 
@@ -26,7 +27,7 @@ const BooksGrid = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const booksPerPage = 6;
   const { colorMode } = useColorMode();
-
+  const toast = useToast();
  
   const totalPages = Math.ceil(books.length / booksPerPage);
   const indexOfLastBook = currentPage * booksPerPage;
@@ -39,7 +40,16 @@ const BooksGrid = () => {
   );
 
   const currentBooks = filteredBooks.slice(indexOfFirstBook, indexOfLastBook);
-
+  const raiseToast = () => {
+    toast({
+      title: 'Book Purchased..!!',
+      description: 'Thank You For Buying Book..!!',
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+      position: 'top-right'
+    });
+  }
   return (
     <Box p={4} m={4}>
       <InputGroup mb={4}>
@@ -109,7 +119,7 @@ const BooksGrid = () => {
                       {book.price.displayValue} {book.price.currency}
                     </Text>
                     <Spacer />
-                    <Button colorScheme="pink" size="sm">
+                    <Button colorScheme="pink" size="sm" onClick={raiseToast} >
                       Buy
                     </Button>
                   </Flex>
