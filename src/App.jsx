@@ -6,6 +6,7 @@ import ContactUsPage from "./pages/ContactUsPage";
 import SingleBookPage from "./pages/SingleBookPage";
 import CoursePage from "./pages/CoursePage";
 import AboutUsPage from "./pages/AboutUsPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/single-book/:id" element={<SingleBookPage/>} />
         <Route path="/course" element={<CoursePage/>} />
         <Route path="/about" element={<AboutUsPage/>} />
+        <Route path="/checkout" element={<CheckoutPage/>} />
       </Routes>
     </>
   );

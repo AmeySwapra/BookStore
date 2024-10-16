@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Flex,
@@ -11,19 +11,23 @@ import {
   Collapse,
   useDisclosure,
   Stack,
+  Badge,
 } from '@chakra-ui/react';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import { FaMoon, FaSun, FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import AuthModal from './AuthModal';
-import ProfileModal from  './ProfileModal';
+import ProfileModal from './ProfileModal';
 
 function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const [isAuthModalOpen, setAuthModalOpen] = useState(false);
   const { isOpen, onToggle } = useDisclosure();
+ 
   const user = JSON.parse(localStorage.getItem('user'));
 
   const { isOpen: isProfileModalOpen, onOpen: onProfileOpen, onClose: onProfileClose } = useDisclosure(); // Manage profile modal state
+
+
 
   return (
     <>
@@ -55,6 +59,17 @@ function Navbar() {
             <Link to="/course">Course</Link>
             <Link to="/contact">Contact</Link>
             <Link to="/about">About</Link>
+            <Link to="/checkout">
+              <HStack>
+                <IconButton
+                  aria-label="Cart"
+                  icon={<FaShoppingCart />}
+                  variant="ghost"
+                  color={colorMode === 'light' ? 'black' : 'white'}
+                />
+                
+              </HStack>
+            </Link>
             <IconButton
               aria-label="Toggle dark/light mode"
               icon={colorMode === 'light' ? <FaMoon /> : <FaSun />}
@@ -88,6 +103,17 @@ function Navbar() {
             <Link to="/course">Course</Link>
             <Link to="/contact">Contact</Link>
             <Link to="/about">About</Link>
+            <Link to="/checkout">
+              <HStack>
+                <IconButton
+                  aria-label="Cart"
+                  icon={<FaShoppingCart />}
+                  variant="ghost"
+                  color={colorMode === 'light' ? 'black' : 'white'}
+                />
+               
+              </HStack>
+            </Link>
           </Stack>
         </Collapse>
       </Box>
